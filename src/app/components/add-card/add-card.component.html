@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-6 m-3">
+    <h1>Add new Card</h1>
+    <mat-card>
+      <form [formGroup]="addForm" novalidate (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter Question"
+            name="question"
+            formControlName="question"
+          />
+          <mat-error
+            *ngIf="
+              addForm.controls.question.invalid &&
+              addForm.controls.question.touched
+            "
+          >
+            question is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter Answer"
+            name="answer"
+            formControlName="answer"
+          />
+          <mat-error
+            *ngIf="
+              addForm.controls.answer.invalid && addForm.controls.answer.touched
+            "
+          >
+            answer is required</mat-error
+          >
+        </mat-form-field>
+
+        <div>
+          <button
+            type="submit"
+            [disabled]="!addForm.valid"
+            mat-raised-button
+            color="primary"
+          >
+            Add
+          </button>
+          <button type="reset" mat-raised-button>Cancel</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

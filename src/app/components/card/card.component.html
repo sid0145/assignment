@@ -1,0 +1,27 @@
+<mat-accordion multi="true">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header
+      class="card-header"
+      [class.bg-success]="isTrue"
+      [class.bg-danger]="!isTrue"
+    >
+      <h3>{{ data?.question }}</h3>
+    </mat-expansion-panel-header>
+    <h5>answer</h5>
+    <hr />
+    <div class="card-footer p-4">
+      <button class="btn btn-outline-primary" (click)="onCorrect()">
+        <i class="fa fa-check"></i>
+      </button>
+      <button class="btn btn-outline-primary" (click)="onWrong()">
+        <i class="fa fa-close"></i>
+      </button>
+      <a class="btn btn-outline-primary" (click)="onEdit(data?.id)">
+        <i class="fa fa-pencil"></i
+      ></a>
+      <button class="btn btn-outline-danger" (click)="onDelete(data?.id)">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
